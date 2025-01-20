@@ -14,6 +14,8 @@ The completion progress is **normalized** according to the sum of all task value
 
 ## Getting Started
 
+Live URL: [https://lodgify-mu.vercel.app/](https://lodgify-mu.vercel.app/)
+
 ### Prerequisites
 
 - **Node.js** (version 20+ recommended)
@@ -95,5 +97,12 @@ for example if the sum of the tasks is 423 and a task has a value of 36 the norm
 
 ## Solution:
 
-Instead of displaying the progress by **adding the amount of checked items**, we will display the progress by adding the **value of the checked items**.
-In order to 'normalize' to a number, we will use **`reduce()`**, with this function we can transform the data and greatly simplify the reduction to display the progress.
+Instead of displaying the progress by **adding the amount of checked items**, we will use `reduce()`, with this function we can transform the data to 'normalize' the value.
+
+## Testing
+
+In the **tests** folder, you can find an integration test written using Jest and React Testing Library. To strat the test simply run `npm test` and 3 expected scenarios will be validated.
+
+- The test focuses on verifying the integration between the `fetchTasks()` function, `Home` component, and the `ProgressBar` component.
+- The main goal is to ensure that the progress bar correctly updates and displays changes in the progress value based on the mocked data.
+- For the scope of this assessment, I'll mock data instead of setting up the server to ensure the tests remain focused on verifying the component behavior and integration, without relying on an actual backend or network calls
