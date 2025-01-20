@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest --config jest.config.ts"
+    "test": "jest --verbose --config jest.config.ts"
   },
   "dependencies": {
     "@testing-library/react": "^16.2.0",
