@@ -19,14 +19,15 @@ const TaskGroup: React.FC<TaskGroupProps> = ({ group, onUpdate }) => {
     };
 
     return (
-        <div className="">
+        <div>
             {tasks.map((task, index) => (
                 <TaskItem
-                    value={task.value}
                     key={index}
+                    value={task.value}
                     description={task.description}
                     checked={task.checked}
                     onChange={() => handleCheck(index)}
+                    aria-label={`Task ${task.description}, ${task.checked ? 'completed' : 'not completed'}`}
                 />
             ))}
         </div>

@@ -29,9 +29,7 @@ const Home: React.FC = () => {
     calculateProgress(updatedGroups);
   };
 
-
   const calculateProgress = (groups: Group[]) => {
-
     const totalValue = groups.reduce(
       (acc, group) =>
         acc +
@@ -53,10 +51,10 @@ const Home: React.FC = () => {
     <div className="p-8 w-screen flex flex-col items-center justify-start">
       <div className="w-[90%] max-w-5xl mx-auto">
         <h1 className="text-2xl font-bold mb-4">Profile Completion</h1>
-        <ProgressBar progress={progress} />
+        <ProgressBar progress={progress} aria-label="Progress bar showing profile completion percentage" />
         <div className="mt-10">
           {groups.map((group, index) => (
-            <Accordion key={index} title={group.name}>
+            <Accordion key={index} title={group.name} aria-label={`Accordion for ${group.name}`}>
               <TaskGroup
                 group={group}
                 onUpdate={(updatedGroup) => {
