@@ -14,7 +14,7 @@ The completion progress is **normalized** according to the sum of all task value
 
 ## Getting Started
 
-Live URL: [https://lodgify-mu.vercel.app/](https://lodgify-mu.vercel.app/)
+Live URL: [https://lodgify-pied.vercel.app/](https://lodgify-pied.vercel.app/)
 
 ### Prerequisites
 
