@@ -5,6 +5,7 @@ import Accordion from '@/components/accordion';
 import TaskGroup from '@/components/tasks';
 import { Group } from '@/types';
 import { fetchTasks } from '@/actions';
+import { calculateProgress } from '@/utils/calculateProgress';
 
 const Home: React.FC = () => {
   const [groups, setGroups] = useState<Group[]>([]);
@@ -15,7 +16,7 @@ const Home: React.FC = () => {
       try {
         const data = await fetchTasks();
         setGroups(data);
-        calculateProgress(data);
+        setProgress(calculateProgress(data));
       } catch (error) {
         console.error('Error fetching tasks:', error);
       }
@@ -26,25 +27,7 @@ const Home: React.FC = () => {
 
   const handleTaskUpdate = (updatedGroups: Group[]) => {
     setGroups(updatedGroups);
-    calculateProgress(updatedGroups);
-  };
-
-  const calculateProgress = (groups: Group[]) => {
-    const totalValue = groups.reduce(
-      (acc, group) =>
-        acc +
-        group.tasks.reduce((taskSum, task) => taskSum + task.value, 0),
-      0
-    );
-
-    const completedValue = groups.reduce(
-      (acc, group) =>
-        acc +
-        group.tasks.reduce((taskSum, task) => (task.checked ? taskSum + task.value : taskSum), 0),
-      0
-    );
-
-    setProgress((completedValue / totalValue) * 100);
+    setProgress(calculateProgress(updatedGroups));
   };
 
   return (
